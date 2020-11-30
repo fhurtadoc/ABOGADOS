@@ -1,0 +1,24 @@
+
+
+
+<button (click)="cambiartitulo()">cambiar titulo</button>
+<h2>{{titulo}}<h2>
+
+  <ul>
+    <li *ngFor="let abogado of abogados">
+      {{abogado.nombre}}-{{abogado.apellidos}}{{abogado.Tp}} <br>$<strong [class.altoPrecio]="abogado.costoHora >= 30000">{{abogado.costoHora}}</strong>
+      <span *ngIf="abogado.costoHora <= 30000"
+      [style.color]="abogado.costoHora <=20000 ? 'red': 'green'">-!En Oferta¡</span>
+    </li>
+  </ul>
+
+  <p>Anadir propuesta</p>
+
+<p>
+<label for="propuesta">propuesta</label>
+<input type="text"[(ngModel)]="propuesta" id="propuesta">
+<button (click)=getpropuesta()>enviar propuesta</button>
+</p>
+{{propuesta}}
+
+
